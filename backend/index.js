@@ -20,7 +20,7 @@ connectDB();
 
 // CORS Middleware
 app.use(cors({
-    origin: "https://trail-vei3.vercel.app/",
+    origin: ["http://localhost:5173", "https://trail-chi-ten.vercel.app/"],
     credentials: true,
 }));
 
@@ -30,11 +30,17 @@ app.use(cookieParser());
 
 // check
 app.get("/", (req, res) => {
-    res.json("HI from backend");
+    res.json({
+        success: true,
+        message: "Hi from backend!"
+    });
 });
 
 app.get("/hello", (req, res) => {
-    res.json("Hello bhaiii sun jara!");
+    res.json({
+        success: true,
+        message: "Hello bhaiii sun jara!"
+    })
 })
 
 // APIs routes
