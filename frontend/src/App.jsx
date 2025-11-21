@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const fetchBackend = async () => {
-      const res = await axios.get("https://trail-vei3.vercel.app", { withCredentials: true });
+      const res = await axios.get("https://trail-vei3.vercel.app/hello", { withCredentials: true });
       if (res.data.success) {
         console.log(res.data.message);
         setData(res.data.message);
