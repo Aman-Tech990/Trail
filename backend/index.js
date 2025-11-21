@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // check
-app.get("/hello", (req, res) => {
+app.get("/", (req, res) => {
     res.json("HI from backend");
 });
 
