@@ -6,7 +6,7 @@ import connectDB from "./connectDB.js";
 
 // Load environment variables
 if (process.env.NODE_ENV !== "production") {
-    dotenv.config();
+    dotenv.config({});
 }
 
 // Initialize App
@@ -20,7 +20,7 @@ connectDB();
 
 // CORS Middleware
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://trail-vei3.vercel.app/",
     credentials: true,
 }));
 
