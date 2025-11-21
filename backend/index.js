@@ -33,6 +33,10 @@ app.get("/", (req, res) => {
     res.json("HI from backend");
 });
 
+app.get("/hello", (req, res) => {
+    res.json("Hello bhaiii sun jara!");
+})
+
 // APIs routes
 
 // App Entry
