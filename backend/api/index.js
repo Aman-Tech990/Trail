@@ -29,14 +29,14 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
     res.json({
         success: true,
-        message: "Hi from backend! (Vercel Serverless)"
+        message: "Hi from backend!"
     });
 });
 
 app.get("/hello", (req, res) => {
     res.json({
         success: true,
-        message: "Hello bhaiii sun jara! (Working now 🎉)"
+        message: "Hello bhaiii sun jara!"
     });
 });
 
