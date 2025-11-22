@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "../connectDB.js";
+import userRoutes from "../routes/users.routes.js";
 
 // Load env
 dotenv.config();
@@ -33,6 +34,8 @@ app.get("/", (req, res) => {
     });
 });
 
+app.use('/api/users', userRoutes);
+
 app.get("/hello", (req, res) => {
     res.json({
         success: true,
@@ -40,5 +43,4 @@ app.get("/hello", (req, res) => {
     });
 });
 
-// IMPORTANT: Export — NO app.listen()
 export default app;
