@@ -103,12 +103,12 @@ export const checkLocationEligibility = async (req, res) => {
 
         // Define eligibility radius (in kilometers)
         // You can change this value: 5, 10, 20, 50, 100, etc.
-        const ELIGIBILITY_RADIUS_KM = 10;
+        const ELIGIBILITY_RADIUS_KM = 15;
 
         const isEligible = distance <= ELIGIBILITY_RADIUS_KM;
 
         console.log('Eligibility radius:', ELIGIBILITY_RADIUS_KM, 'km');
-        console.log('Eligibility check:', isEligible ? 'ELIGIBLE ✅' : 'NOT ELIGIBLE ❌');
+        console.log('Eligibility check:', isEligible ? 'ELIGIBLE!' : 'NOT ELIGIBLE!');
 
         return res.status(200).json({
             success: true,
