@@ -5,8 +5,14 @@ import cookieParser from "cookie-parser";
 import connectDB from "../connectDB.js";
 import userRoutes from "../routes/users.routes.js";
 
-// Load env
+// Load env FIRST
 dotenv.config();
+
+// DEBUG: Check if env variables are loaded
+console.log('=== ENV CHECK ===');
+console.log('OPENCAGE_API_KEY:', process.env.OPENCAGE_API_KEY ? 'EXISTS' : 'MISSING');
+console.log('MONGO_URI:', process.env.MONGO_URI ? 'EXISTS' : 'MISSING');
+console.log('================');
 
 // Create Express app
 const app = express();
@@ -40,6 +46,16 @@ app.get("/hello", (req, res) => {
     res.json({
         success: true,
         message: "Hello bhaiii sun jara!"
+    });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error('Unhandled error:', err);
+    res.status(500).json({
+        success: false,
+        message: 'Internal server error',
+        error: process.env.NODE_ENV === 'development' ? err.message : undefined
     });
 });
 
