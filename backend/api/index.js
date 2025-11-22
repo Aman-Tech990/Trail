@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "../connectDB.js";
 import userRoutes from "../routes/users.routes.js";
+import locationRoutes from "../routes/location.routes.js";
 
 // Load env FIRST
 dotenv.config();
@@ -41,6 +42,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/users', userRoutes);
+app.use('/api/location', locationRoutes);
 
 app.get("/hello", (req, res) => {
     res.json({

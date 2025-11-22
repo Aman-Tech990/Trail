@@ -76,7 +76,6 @@ export const createUser = async (req, res) => {
                         finalAddress = `${lat}, ${lng}`;
                     }
                 } else {
-                    // No API key, use coordinates as address
                     finalAddress = `${lat}, ${lng}`;
                 }
             }
@@ -85,7 +84,6 @@ export const createUser = async (req, res) => {
         else if (address) {
             console.log('Geocoding address:', address);
 
-            // Check if API key exists
             const apiKey = process.env.OPENCAGE_API_KEY;
 
             if (!apiKey) {
@@ -96,7 +94,6 @@ export const createUser = async (req, res) => {
                 });
             }
 
-            // Forward geocode the address
             const geocodeUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
                 address
             )}&key=${apiKey}`;
